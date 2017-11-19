@@ -27,9 +27,9 @@ const DIR = {
 };
 
 const SRC = {
-    DATA: DIR.SRC + '/data/*',
-    COMMONJS: DIR.SRC + '/js/common/*.js',
-    JS: DIR.SRC + '/js/'+config.dir+'/*',
+    DATA: DIR.SRC + '/data/**',
+    COMMONJS: DIR.SRC + '/js/common/**',
+    JS: DIR.SRC + '/js/'+config.dir+'/**',
     CSS: DIR.SRC + '/css/*.css',
     FONT: DIR.SRC + '/css/font/*.*',
     HTML: DIR.SRC + '/*.html',

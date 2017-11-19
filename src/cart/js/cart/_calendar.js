@@ -3,12 +3,12 @@ import Requester from './_requester';
 
 export default class Calendar extends Requester {
 
-     setCalender(callback) {
+     setCalender(args, day) {
 
           const SCOPE = this;
           
           let id = SCOPE.CartBody.scope;
-          let date = SCOPE.CartBody.date;
+          let date = day;
 
           let CALENDAR_TARGET = $(id);
 
@@ -68,6 +68,7 @@ export default class Calendar extends Requester {
           }
           //10월 이하라면 앞에 0을 붙여준다.
 
+          SCOPE.CartBody.data.request.data = args;
           SCOPE.onAjax(SCOPE.CartBody.data.request, function(res){
 
                let calendar = '';
@@ -89,9 +90,7 @@ export default class Calendar extends Requester {
 
                let dateNum = 1 - currentDay;
 
-               let afterDate = 1;
-
-               for(let i = 0; i < week; i++, afterDate++) {
+               for(let i = 0; i < week; i++) {
                     calendar += '<tr>';
                     for(let j = 0; j < 7; j++, dateNum++) {
 
@@ -111,7 +110,7 @@ export default class Calendar extends Requester {
 
                               return data.TOTAL ? 
                                    '<button data-day="'+dateNum+'" type="button" '+
-                                        'onclick="return CALENDAR.getLink({ day: '+dateNum+', url: '+data.LINK+' })">'+
+                                        'onclick="return CALENDAR.getLink({ day: '+dateNum+', url: \'http://192.168.0.4:8090'+data.LINK+'\' })">'+
                                         dateNum + '<span>(' + data.TOTAL + ')</span>'+
                                    '</button>' : dateNum;
 

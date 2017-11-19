@@ -93,7 +93,11 @@ function Cart(args){
 					name: '#CartBody',
 					dom: function(opt){
 						let id = opt.ui.calendar.body.name.substr(1);
-						return '<table id="'+id+'"></table>'
+						return '\n'+
+							'\n<div id="CartScreen">'+
+								'\n<div class="screen">\n<table id="'+id+'"></table></div>'+
+								'\n<div class="screen"></div>'+
+							'\n<div>';
 					}
 				}
 			}
@@ -248,7 +252,9 @@ Cart.prototype.setBody = function(args){
 	$(Cart.ui.calendar.control.name)
 		.replaceWith(Cart.ui.calendar.control.dom(Cart));
 
-	CALENDAR.setCalender();
+	var date = Cart.data.year+'-'+Cart.data.month+'-'+Cart.data.day;
+
+	CALENDAR.setCalender({ year: Cart.data.year, month: Cart.data.month }, date);
 
 	return 1;
 };
@@ -266,13 +272,13 @@ Cart.prototype.setModal = function(args){
 				'	<div class="scrollbar"><div class="scroll-ground"><button type="button"><span class="skip">스크롤</span></button></div></div>',
 				'	<button data-modalCode="-1" class="close" type="button"><span class="icon"></span> 닫기</button>',
 				'	<ul class="obj">',
-				'		<li class="item"><button data-modalcode="0" type="button"><span class="icon"></span> 월</button></li>',
-				'		<li class="item"><button data-modalcode="1" type="button"><span class="icon"></span> 주</button></li>',
-				'		<li class="item"><button data-modalcode="2" type="button"><span class="icon"></span> 일</button></li>',
-				'		<li class="item"><button data-modalcode="3" type="button"><span class="icon person"></span> 내일정</button></li>',
-				'		<li class="item"><button data-modalcode="4" type="button"><span class="icon pin"></span> 주변일정</button></li>',
-				'		<li class="item"><button data-modalcode="5" type="button"><span class="icon group"></span> 모임일정</button></li>',
-				'		<li class="item"><button data-modalcode="6" type="button"><span class="icon setting"></span> 설정</button></li>',
+				'		<li class="item"><button data-modalcode="month" type="button"><span class="icon"></span> 월</button></li>',
+				'		<li class="item"><button data-modalcode="week" type="button"><span class="icon"></span> 주</button></li>',
+				// '		<li class="item"><button data-modalcode="2" type="button"><span class="icon"></span> 일</button></li>',
+				'		<li class="item"><button data-modalcode="my" type="button"><span class="icon person"></span> 내일정</button></li>',
+				'		<li class="item"><button data-modalcode="area" type="button"><span class="icon pin"></span> 주변일정</button></li>',
+				'		<li class="item"><button data-modalcode="group" type="button"><span class="icon group"></span> 모임일정</button></li>',
+				'		<li class="item"><button data-modalcode="setting" type="button"><span class="icon setting"></span> 설정</button></li>',
 				'	</ul>',
 				'</div>'
 			].join('');

@@ -10,8 +10,8 @@ export default class Requester {
 			date: null,
 			data : {
 			    request: {
-			         type: 'GET',
-			         url : '/cart/data/calendar.json'
+			        type: 'GET',
+			        url : 'http://192.168.0.4:8090/calender/calender.do'
 			    }
 			}
 		};
@@ -22,12 +22,28 @@ export default class Requester {
 			dom: function(opt) {
 				return '\n'+
 					'\n<div id="CartContent-modal-'+opt+'" class="floatbox">'+
-					'\n\t<div class="TITLE">{{TITLE}}</div>'+
-					'\n\t<div class="SUMMARY">{{SUMMARY}}</div>'+
-					'\n\t<div class="CONTENT">{{CONTENT}}</div>'+
+					'\n\t<div>{{CONTENTS}}</div>'+
+					'\n\t<div>{{DEL_CHK}}</div>'+
+					'\n\t<div>{{END_DE}}</div>'+
+					'\n\t<div>{{REG_DE}}</div>'+
+					'\n\t<div>{{REG_ID}}</div>'+
+					'\n\t<div>{{SCHEDULE_NO}}</div>'+
+					'\n\t<div>{{START_DE}}</div>'+
+					'\n\t<div>{{SUBJECT}}</div>'+
 					'\n</div>';
 			}
 
+		};
+
+		SCOPE.CartScreen = {
+			scope: '#CartBody', 
+			date: null,
+			data : {
+			    request: {
+			        type: 'GET',
+			        url : 'http://192.168.0.4:8090/calender/calender.do'
+			    }
+			}
 		};
 
     }
@@ -36,6 +52,7 @@ export default class Requester {
 		return $.ajax({
 		   type: args.type,
 		   url: args.url,
+		   data: args.data || {},
 		   success: callback,
 		   error: function(res) {
 		        console.log(res);

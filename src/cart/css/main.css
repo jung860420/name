@@ -88,7 +88,7 @@ legend,caption,.skip{position:fixed;top:-1px;left:-1px;width:1px;height:1px;over
 	#CartCategory ul li label{display:block;height:100%;padding:0 10px;font-size:14px}
 	#CartCategory ul li label:before{content:"";display:inline-block;height:100%;vertical-align:middle}
 	
-	#CartBody{width:100%;height:75%;text-align:center;border-spacing:0;border-collapse:collapse}
+	#CartBody{width:100%;height:100%;text-align:center;border-spacing:0;border-collapse:collapse}
 	#CartBody th,#CartBody td{vertical-align:middle;border:solid #dcdcdc;border-width:1px 0 0}
 	#CartBody th{padding:15px 0}
 	#CartBody td, #CartBody td button{height:50px;font-size:12px;vertical-align:middle}
@@ -112,3 +112,7 @@ legend,caption,.skip{position:fixed;top:-1px;left:-1px;width:1px;height:1px;over
 
 #CartContent{position:absolute;top:0;left:100%;width:100%;height:85%;background-color:#fff}
 #CartContent .floatbox{position:absolute;top:0;left:100%;width:100%;height:85%;background-color:#fff}
+
+#CartScreen{width:200%;height:75%}
+#CartScreen .screen{width:50%}
+#CartBody{height:100%}

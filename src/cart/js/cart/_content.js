@@ -25,9 +25,26 @@ export default class Content extends Requester {
 
 			if($('#CartContent-modal-'+args.code).length == 0) {
 
-				$(SCOPE.CartContent.scope).append(SCOPE.CartContent.dom(args.code));
-			}
+				var resLen = res.length;
 
+				var str = SCOPE.CartContent.dom(args.code);
+
+				for (var i=0; i<resLen; i++) {
+					str = str.replace('{{CONTENTS}}', res[i].CONTENTS);
+					str = str.replace('{{DEL_CHK}}', res[i].DEL_CHK);
+					str = str.replace('{{END_DE}}', res[i].END_DE);
+					str = str.replace('{{REG_DE}}', res[i].REG_DE);
+					str = str.replace('{{REG_ID}}', res[i].REG_ID);
+					str = str.replace('{{SCHEDULE_NO}}', res[i].SCHEDULE_NO);
+					str = str.replace('{{START_DE}}', res[i].START_DE);
+					str = str.replace('{{SUBJECT}}', res[i].SUBJECT);
+				}
+
+				console.log(str);
+
+				$(SCOPE.CartContent.scope).append(str);
+			}
+			
 			SCOPE.onPushSlide(args.code);
 		});
 
@@ -47,7 +64,6 @@ export default class Content extends Requester {
 						return 1;
 					}
 				);
-
 		}
 
 		CART.onCloseModal();

@@ -1,0 +1,27 @@
+{% config %}
+
+{
+	"request": {
+		"json": "/modules/js/skin/xhr/data.json"
+
+	},
+	"indicate": {
+		"skin": "#txt",
+		"normal": ".normalskin",
+		"loop": ".loopskin",
+		"button": ".buttonskin",
+		"thumbnail": ".thumbnailskin"
+
+	},
+	"override": {}
+}
+
+{% end config %}
+
+{% skin %}
+
+<div class="TITLE">{{TITLE}}</div>
+<div class="SUMMARY">{{SUMMARY}}</div>
+<div class="CONTENT">{{CONTENT}}</div>
+
+{% end skin %}
