@@ -35,17 +35,15 @@ export default class Requester {
 
 		};
 
-		SCOPE.CartScreen = {
-			scope: '#CartBody', 
+		SCOPE.CartMenuContent = {
+			scope: '#CartMenuContent', 
 			date: null,
-			data : {
-			    request: {
-			        type: 'GET',
-			        url : 'http://192.168.0.4:8090/calender/calender.do'
-			    }
+			dom: function(opt) {
+				return '\n'+
+					'\n<div id="CartMenuContent-modal-'+opt+'" class="floatbox">{{TITLE}}</div>';
 			}
-		};
 
+		};
     }
 
 	onAjax(args, callback) {

@@ -68,6 +68,8 @@ export default class Calendar extends Requester {
           }
           //10월 이하라면 앞에 0을 붙여준다.
 
+          console.log(SCOPE.CartBody.data.request);
+
           SCOPE.CartBody.data.request.data = args;
           SCOPE.onAjax(SCOPE.CartBody.data.request, function(res){
 

@@ -51,6 +51,46 @@ export default class Content extends Requester {
 		return 1;
 	}
 
+	getMenuContent(args) {
+
+		console.log(args);
+
+		const SCOPE = this;
+
+		let request = {
+		   type: 'GET',
+		   url: args.url,
+		   data: {
+		        cd: args.code
+		   }
+		};
+
+		// SCOPE.onAjax(request, function(res) {
+
+			if($('#CartMenuContent-modal-'+args.code).length == 0) {
+
+				// var resLen = res.length;
+
+				var str = SCOPE.CartMenuContent.dom(args.code);
+
+				// for (var i=0; i<resLen; i++) {
+				 	// str = str.replace('{{TITLE}}', res[i].title);
+				 	str = str.replace('{{TITLE}}', args.code);
+				// }
+
+				console.log(str);
+
+				$(SCOPE.CartMenuContent.scope).append(str);
+			}
+
+			CART.onCloseModal();
+			CONTENT.onPushRemove();
+
+		// });
+
+		return 1;
+	}
+
 	onPushSlide(args) {
 
 		const SCOPE = this;
@@ -86,4 +126,6 @@ export default class Content extends Requester {
 		}
 
 	}
+
+
 }
