@@ -270,14 +270,14 @@ Cart.prototype.setModal = function(args){
 			return [
 				'<div id="'+id+'">',
 				'	<div class="scrollbar"><div class="scroll-ground"><button type="button"><span class="skip">스크롤</span></button></div></div>',
-				'	<button data-modalCode="-1" class="close" type="button"><span class="icon"></span> 닫기</button>',
+				'	<button onclick="return CART.onCloseModal();" class="close" type="button" ><span class="icon"></span> 닫기</button>',
 				'	<ul class="obj">',
-				'		<li class="item"><button onclick="return CONTENT.getMenuContent({ url: \'http://192.168.0.4:8090/calender/calender.do\', code: \'month\'})" type="button"><span class="icon"></span> 월</button></li>',
-				'		<li class="item"><button onclick="return CONTENT.getMenuContent({ url: \'http://192.168.0.4:8090/calender/calender.do\', code: \'week\'})" type="button"><span class="icon"></span> 주</button></li>',
-				'		<li class="item"><button onclick="return CONTENT.getMenuContent({ url: \'http://192.168.0.4:8090/calender/calender.do\', code: \'my\'})" type="button"><span class="icon person"></span> 내일정</button></li>',
-				'		<li class="item"><button onclick="return CONTENT.getMenuContent({ url: \'http://192.168.0.4:8090/calender/calender.do\', code: \'area\'})" type="button"><span class="icon pin"></span> 주변일정</button></li>',
-				'		<li class="item"><button onclick="return CONTENT.getMenuContent({ url: \'http://192.168.0.4:8090/calender/calender.do\', code: \'group\'})" type="button"><span class="icon group"></span> 모임일정</button></li>',
-				'		<li class="item"><button onclick="return CONTENT.getMenuContent({ url: \'http://192.168.0.4:8090/calender/calender.do\', code: \'setting\'})" type="button"><span class="icon setting"></span> 설정</button></li>',
+				'		<li class="item"><button onclick="return CONTENT.getMenuContent({ url: \''+REQUESTER.DOMAIN+'calender/calender.do\', code: \'month\'})" type="button"><span class="icon"></span> 월</button></li>',
+				'		<li class="item"><button onclick="return CONTENT.getMenuContent({ url: \''+REQUESTER.DOMAIN+'calender/calender.do\', code: \'week\'})" type="button"><span class="icon"></span> 주</button></li>',
+				'		<li class="item"><button onclick="return CONTENT.getMenuContent({ url: \''+REQUESTER.DOMAIN+'calender/calender.do\', code: \'my\'})" type="button"><span class="icon person"></span> 내일정</button></li>',
+				'		<li class="item"><button onclick="return CONTENT.getMenuContent({ url: \''+REQUESTER.DOMAIN+'calender/calender.do\', code: \'area\'})" type="button"><span class="icon pin"></span> 주변일정</button></li>',
+				'		<li class="item"><button onclick="return CONTENT.getMenuContent({ url: \''+REQUESTER.DOMAIN+'calender/calender.do\', code: \'group\'})" type="button"><span class="icon group"></span> 모임일정</button></li>',
+				'		<li class="item"><button type="button"><span class="icon setting"></span> 설정</button></li>',
 				'	</ul>',
 				'</div>'
 			].join('');

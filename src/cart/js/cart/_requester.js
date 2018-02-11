@@ -5,13 +5,15 @@ export default class Requester {
 
         const SCOPE = this;
 
+        SCOPE.DOMAIN = 'http://192.168.0.2:8090/';
+
 		SCOPE.CartBody = {
 			scope: '#CartBody', 
 			date: null,
 			data : {
 			    request: {
 			        type: 'GET',
-			        url : 'http://192.168.0.4:8090/calender/calender.do'
+			        url : SCOPE.DOMAIN+'calender/calender.do'
 			    }
 			}
 		};
@@ -30,7 +32,9 @@ export default class Requester {
 					'\n\t<div>{{SCHEDULE_NO}}</div>'+
 					'\n\t<div>{{START_DE}}</div>'+
 					'\n\t<div>{{SUBJECT}}</div>'+
+					'\n\t<button onclick="return CONTENT.onPushRemove();">취소</button>'+
 					'\n</div>';
+					
 			}
 
 		};
@@ -40,7 +44,10 @@ export default class Requester {
 			date: null,
 			dom: function(opt) {
 				return '\n'+
-					'\n<div id="CartMenuContent-modal-'+opt+'" class="floatbox">{{TITLE}}</div>';
+					'\n<div id="CartMenuContent-modal-'+opt+'" class="floatbox">'+
+					'\n\t<h1>{{TITLE}}</h1>'+
+					'\n\t<button onclick="return CONTENT.onPushRemove();">취소</button>'+
+					'\n</div>';
 			}
 
 		};

@@ -112,7 +112,7 @@ export default class Calendar extends Requester {
 
                               return data.TOTAL ? 
                                    '<button data-day="'+dateNum+'" type="button" '+
-                                        'onclick="return CALENDAR.getLink({ day: '+dateNum+', url: \'http://192.168.0.4:8090'+data.LINK+'\' })">'+
+                                        'onclick="return CALENDAR.getLink({ day: '+dateNum+', url: \''+SCOPE.DOMAIN+data.LINK+'\' })">'+
                                         dateNum + '<span>(' + data.TOTAL + ')</span>'+
                                    '</button>' : dateNum;
 

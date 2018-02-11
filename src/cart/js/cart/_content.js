@@ -45,7 +45,7 @@ export default class Content extends Requester {
 				$(SCOPE.CartContent.scope).append(str);
 			}
 			
-			SCOPE.onPushSlide(args.code);
+			SCOPE.onPushSlide(args.code, '#CartContent-modal');
 		});
 
 		return 1;
@@ -69,6 +69,10 @@ export default class Content extends Requester {
 
 			if($('#CartMenuContent-modal-'+args.code).length == 0) {
 
+				CART.onCloseModal();
+
+				CONTENT.onPushRemove();
+
 				// var resLen = res.length;
 
 				var str = SCOPE.CartMenuContent.dom(args.code);
@@ -81,26 +85,27 @@ export default class Content extends Requester {
 				console.log(str);
 
 				$(SCOPE.CartMenuContent.scope).append(str);
+
+				CONTENT.onPushSlide(args.code, '#CartMenuContent-modal');
 			}
 
-			CART.onCloseModal();
-			CONTENT.onPushRemove();
+			
 
 		// });
 
 		return 1;
 	}
 
-	onPushSlide(args) {
+	onPushSlide(args, type) {
 
 		const SCOPE = this;
 
-		if(SCOPE.CartContent.floatbox != '#CartContent-modal-'+args) {
+		if(SCOPE.CartContent.floatbox != type+'-'+args) {
 
-			$('#CartContent-modal-'+args)
+			$(type+'-'+args)
 				.animate({ left: -100+'%'}, 700, 'easeOutExpo',
 					function() {
-						SCOPE.CartContent.floatbox = '#CartContent-modal-'+args;
+						SCOPE.CartContent.floatbox = type+'-'+args;
 						return 1;
 					}
 				);
