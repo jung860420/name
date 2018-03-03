@@ -73,6 +73,8 @@ export default class Calendar extends Requester {
           SCOPE.CartBody.data.request.data = args;
           SCOPE.onAjax(SCOPE.CartBody.data.request, function(res){
 
+               console.log(res);
+
                let calendar = '';
 
                calendar += '<table>';

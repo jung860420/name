@@ -5,7 +5,7 @@ export default class Requester {
 
         const SCOPE = this;
 
-        SCOPE.DOMAIN = 'http://192.168.0.2:8090/';
+        SCOPE.DOMAIN = 'http://192.168.0.7:8090/';
 
 		SCOPE.CartBody = {
 			scope: '#CartBody', 
